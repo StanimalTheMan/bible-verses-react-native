@@ -16,7 +16,7 @@ function VersesList({ items }) {
   }
 
   return (
-    <View>
+    <View style={styles.innerContainer}>
       <FlatList
         data={items}
         keyExtractor={(item) => item.id}
@@ -27,3 +27,9 @@ function VersesList({ items }) {
 }
 
 export default VersesList;
+
+const styles = StyleSheet.create({
+  innerContainer: {
+    alignItems: "center",
+  },
+});
