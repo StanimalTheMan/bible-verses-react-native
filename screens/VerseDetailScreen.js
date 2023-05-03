@@ -16,7 +16,7 @@ function VerseDetailScreen({ route, navigation }) {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: { verseNumberFormat },
+      title: verseNumberFormat,
     });
   }, []);
 
