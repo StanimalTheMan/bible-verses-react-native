@@ -1,10 +1,28 @@
-import { Text, View } from "react-native";
+import { FlatList } from "react-native";
 
-function TopicsScreen() {
+import { TOPICS } from "../data/dummy-data";
+import TopicGridTitle from "../components/TopicGridTile";
+
+function TopicsScreen({ navigation }) {
+  function renderTopicItem(itemData) {
+    function pressHandler() {
+      navigation.navigate("VerseOverview", {
+        topicId: itemData.item.id,
+      });
+    }
+
+    return (
+      <TopicGridTitle title={itemData.item.title} onPress={pressHandler} />
+    );
+  }
+
   return (
-    <View>
-      <Text>Topics Screen</Text>
-    </View>
+    <FlatList
+      data={TOPICS}
+      keyExtractor={(item) => item.id}
+      renderItem={renderTopicItem}
+      numColumns={2}
+    />
   );
 }
 
