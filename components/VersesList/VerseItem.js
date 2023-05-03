@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 function VerseItem({ id, book, chapter, verses }) {
   const navigation = useNavigation();
@@ -18,10 +18,8 @@ function VerseItem({ id, book, chapter, verses }) {
   return (
     <Pressable onPress={selectVerseItemHandler}>
       <View>
-        <Text>
-          <Text>
-            {book} {chapter}:{versesText}
-          </Text>
+        <Text style={styles.text}>
+          {book} {chapter}:{versesText}
         </Text>
       </View>
     </Pressable>
@@ -29,3 +27,12 @@ function VerseItem({ id, book, chapter, verses }) {
 }
 
 export default VerseItem;
+
+const styles = StyleSheet.create({
+  text: {
+    borderColor: "black",
+    borderWidth: 8,
+    marginVertical: 16,
+    textAlign: "center",
+  },
+});
